@@ -1,13 +1,13 @@
 # Objective
 POC to produce an event to a kafka topic, consume the same and mark for deletion using tombstone.
 
-# Current state
+### Current state
 Completed base setup and pending with actual work.
 
-# Infra
+### Infra
 A kafka cluster (hosted on local machine using docker) with a topic.
 
-# Features
+### Features
 1. Produces an event to a kafka topic using Confluent.Kafka
 2. Subscribe and consume a message from a kafka topic using Confluent.Kafka
 3. Mark the message for deletion once consumed using tombstone
