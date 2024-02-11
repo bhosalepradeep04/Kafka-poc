@@ -1,5 +1,7 @@
 # Objective
-POC to produce an event to a kafka topic, consume the same and mark for deletion using tombstone.
+POC to produce and consume an event/message from a kafka topic and mark for deletion using tombstone.
+<br/>
+SDK used for kafka operations: Confluent.Kafka
 
 ### Current state
 Completed base setup and pending with actual work.
