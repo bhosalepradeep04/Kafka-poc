@@ -13,8 +13,10 @@ A kafka cluster (hosted on local machine using docker) with a topic.
 3. Mark the message for deletion once consumed using tombstone
 
 ### Languages and Tools:
-<img align="left" alt="C#" title="C#" src="/img/csharp.png" width="50" height="36">
-<img align="left" alt=".NET Core" title=".NET Core" src="/img/dotNet.png" width="32">
-<img align="left" alt="Kafka" title="Kafka" src="/img/kafka.png" width="28">
-<img align="left" alt="Visual Studio" title="Visual Studio" src="/img/visual_studio.png" width="30">
-<img align="left" alt="Docker" title="Docker" src="/img/docker.png" width="48">
+<img align="left" alt="C#" title="C#" src="/contents/img/csharp.png" width="50" height="36">
+<img align="left" alt=".NET Core" title=".NET Core" src="/contents/img/dotNet.png" width="32">
+<img align="left" alt="Kafka" title="Kafka" src="/contents/img/kafka.png" width="28">
+<img align="left" alt="Visual Studio" title="Visual Studio" src="/contents/img/visual_studio.png" width="30">
+<img align="left" alt="Docker" title="Docker" src="/contents/img/docker.png" width="45">
+<img align="left" alt="XUnit" title="XUnit" src="/contents/img/xunit.png" width="55" height="30">
+<img align="left" alt="MOQ" title="MOQ" src="/contents/img/moq.png" width="40">
