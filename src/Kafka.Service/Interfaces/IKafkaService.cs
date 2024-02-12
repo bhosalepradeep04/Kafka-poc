@@ -4,7 +4,7 @@
 	{
         Task PublishAsync<T>(T eventPayload);
 
-        Task<T> ConsumeAsync<T>();
+        Task ConsumeAsync<T>();
     }
 }
 
