@@ -1,10 +1,11 @@
 # Objective
 POC to produce and consume an event/message from a kafka topic and mark for deletion using tombstone.
 <br/>
-SDK used for kafka operations: Confluent.Kafka
+SDK used for kafka operations: Confluent.Kafka.
 
 ### Current state
 Added base setup along with core implementation.
+<br/>
 Pending work:
 1. Client implementation: Producer, Consumer
 2. Common project implementation: Logger, Configuration
