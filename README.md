@@ -4,7 +4,11 @@ POC to produce and consume an event/message from a kafka topic and mark for dele
 SDK used for kafka operations: Confluent.Kafka
 
 ### Current state
-Completed base setup and pending with actual work.
+Added base setup along with core implementation.
+Pending work:
+1. Client implementation: Producer, Consumer
+2. Common project implementation: Logger, Configuration
+3. Infra: Docker image to work with local
 
 ### Infra
 A kafka cluster (hosted on local machine using docker) with a topic.
