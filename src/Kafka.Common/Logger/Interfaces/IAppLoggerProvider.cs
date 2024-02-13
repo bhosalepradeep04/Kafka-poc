@@ -1,8 +1,10 @@
-﻿namespace Kafka.Common.Interfaces
+﻿using Kafka.Common.Models.Enums;
+
+namespace Kafka.Common.Interfaces
 {
 	public interface IAppLoggerProvider
 	{
-		Task<IAppLogger> GetAppLogger(string loggerName);
+		Task<IAppLogger> GetAppLogger(SupportedLoggers loggerName);
 	}
 }
 

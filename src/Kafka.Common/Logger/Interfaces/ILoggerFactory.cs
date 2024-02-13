@@ -1,8 +1,11 @@
-﻿namespace Kafka.Common.Logger.Interfaces
+﻿using Kafka.Common.Interfaces;
+using Kafka.Common.Models.Enums;
+
+namespace Kafka.Common.Logger.Interfaces
 {
 	public interface ILoggerFactory
 	{
-		void GetInstance(string key);
+		IAppLogger GetLogger(SupportedLoggers loggerName);
 	}
 }
 
