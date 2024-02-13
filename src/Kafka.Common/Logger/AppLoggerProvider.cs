@@ -1,24 +1,32 @@
 ﻿using Kafka.Common.Interfaces;
+using Kafka.Common.Logger.Interfaces;
+using Kafka.Common.Models.Enums;
 
 namespace Kafka.Common.Logger
 {
 	public class AppLoggerProvider : IAppLoggerProvider
     {
-		private readonly IServiceProvider _serviceProvider;
+		private readonly ILoggerFactory _loggerFactory;
 
-		public AppLoggerProvider(IServiceProvider serviceProvider)
+		public AppLoggerProvider(ILoggerFactory loggerFactory)
 		{
-            _serviceProvider = serviceProvider;
+            _loggerFactory = loggerFactory;
 		}
 
-        public Task<IAppLogger> GetAppLogger(string loggerName)
+        public async Task<IAppLogger> GetAppLogger(SupportedLoggers loggerName)
         {
+            IAppLogger appLogger = default;
             switch (loggerName)
             {
+                case SupportedLoggers.ConsoleLogger:
+                    appLogger = _loggerFactory.GetLogger(loggerName);
+                    break;
                 default:
+                    appLogger = _loggerFactory.GetLogger(SupportedLoggers.ConsoleLogger);
                     break;
             }
-            throw new NotImplementedException();
+
+            return appLogger;
         }
     }
 }

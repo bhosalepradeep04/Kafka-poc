@@ -14,11 +14,11 @@ public class KafkaService : IKafkaService
     private readonly IAppLogger _appLogger;
     private readonly IConfigurationProvider _configurationProvider;
 
-    public KafkaService(IEventBus eventBus, IEventListener eventListener, IConfigurationProvider configurationProvider, IAppLogger appLogger)
+    public KafkaService(IEventBus eventBus, IEventListener eventListener, IConfigurationProvider configurationProvider, IAppLoggerProvider appLoggerProvider)
     {
         _eventBus = eventBus;
         _eventListener = eventListener;
-        _appLogger = appLogger;
+        _appLogger = appLoggerProvider.GetAppLogger(Common.Models.Enums.SupportedLoggers.ConsoleLogger).GetAwaiter().GetResult();
         _configurationProvider = configurationProvider;
     }
 

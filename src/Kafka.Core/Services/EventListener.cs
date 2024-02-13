@@ -1,5 +1,6 @@
 ﻿using Confluent.Kafka;
 using Kafka.Common.Interfaces;
+using Kafka.Common.Logger;
 using Kafka.Core.Interfaces;
 using Kafka.Core.Models;
 using Newtonsoft.Json;
@@ -15,9 +16,9 @@ namespace Kafka.Core.Services
         private readonly IAppLogger _appLogger;
         private readonly IConfigurationProvider _configurationProvider;
 
-		public EventListener(IConfigurationProvider configurationProvider, IAppLogger appLogger)
+		public EventListener(IConfigurationProvider configurationProvider, IAppLoggerProvider appLoggerProvider)
         {
-            _appLogger = appLogger;
+            _appLogger = appLoggerProvider.GetAppLogger(Common.Models.Enums.SupportedLoggers.ConsoleLogger).GetAwaiter().GetResult();
             _configurationProvider = configurationProvider;
             _kafkaConfiguration = _configurationProvider.GetValue<KafkaConfiguration>(KeyStore.ConfigurationKeys.KafkaSettings).GetAwaiter().GetResult();
         }
