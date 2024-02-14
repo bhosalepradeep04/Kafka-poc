@@ -3,16 +3,16 @@ POC to produce and consume an event/message from a kafka topic and mark for dele
 <br/>
 SDK used for kafka operations: Confluent.Kafka.
 
+### Features
+1. Produces an event to a kafka topic using Confluent.Kafka
+2. Subscribe and consume a message from a kafka topic using Confluent.Kafka
+3. Mark the message for deletion once consumed using tombstone
+
 ### Pending work
 Unit test cases for code coverage
 
 ### Infra
 A kafka cluster (hosted on local machine using docker desktop) with a topic.
-
-### Features
-1. Produces an event to a kafka topic using Confluent.Kafka
-2. Subscribe and consume a message from a kafka topic using Confluent.Kafka
-3. Mark the message for deletion once consumed using tombstone
 
 ### Languages and Tools:
 <img align="left" alt="C#" title="C#" src="/contents/img/csharp.png" width="50" height="36">
