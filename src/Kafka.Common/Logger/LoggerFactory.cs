@@ -7,14 +7,15 @@ namespace Kafka.Common.Logger
 {
 	public class LoggerFactory : ILoggerFactory
 	{
-		public LoggerFactory()
-		{
-		}
-
         public IAppLogger GetLogger(SupportedLoggers loggerName)
         {
-            // TODO: Take from dependency container instead of using new
-            return new ConsoleLoggerStrategy();
+            switch (loggerName)
+            {
+                case SupportedLoggers.ConsoleLogger:
+                    return new ConsoleLoggerStrategy();
+                default:
+                    return new ConsoleLoggerStrategy();
+            }
         }
     }
 }

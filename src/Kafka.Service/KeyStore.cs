@@ -4,7 +4,7 @@
 	{
 		public static class ConfigurationKeys
 		{
-			public const string TopicName = "TopicName";
+			public const string TopicName = "topic_name";
 		}
 
         public static class LogMessages
