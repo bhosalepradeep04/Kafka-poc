@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Kafka.Service.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Kafka.Producer
 {
@@ -6,15 +7,18 @@ namespace Kafka.Producer
     {
         public static async Task Main(string[] args)
         {
-            IHost host = Host.CreateDefaultBuilder(args)
-                .ConfigureServices((hostContext, services) =>
+            try
+            {
+                StartUp.BuildServiceProvider();
+                using (var scope = StartUp.ServiceProvider?.CreateScope())
                 {
-                    IHostEnvironment environment = hostContext.HostingEnvironment;
-                    services.RegisterServices(environment);
-                })
-                .Build();
-
-            await host.RunAsync();
+                    await scope.ServiceProvider.GetRequiredService<IKafkaService>().PublishAsync<string>("Dummy event");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Producer exception: {ex}");
+            }
         }
     }
 }

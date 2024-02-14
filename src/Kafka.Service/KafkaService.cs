@@ -24,7 +24,7 @@ public class KafkaService : IKafkaService
 
     public async Task PublishAsync<T>(T eventPayload)
     {
-        var topicName = await _configurationProvider.GetValue<string>(KeyStore.ConfigurationKeys.TopicName);
+        var topicName = await _configurationProvider.GetValue(KeyStore.ConfigurationKeys.TopicName);
         var dto = new DateTimeOffset(DateTime.UtcNow.AddMinutes(5).ToUniversalTime());
         var headers = new Headers
         {
@@ -37,7 +37,7 @@ public class KafkaService : IKafkaService
     public async Task ConsumeAsync<T>()
     {
         // Initialize consumer and subscriber
-        var topicName = await _configurationProvider.GetValue<string>(KeyStore.ConfigurationKeys.TopicName);
+        var topicName = await _configurationProvider.GetValue(KeyStore.ConfigurationKeys.TopicName);
         await _eventListener.Initialize<T>(topicName, new Core.Models.KafkaConfiguration(), ConsumeMessageHandler);
 
         // Invoke handler

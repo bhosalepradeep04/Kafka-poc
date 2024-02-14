@@ -1,6 +1,5 @@
 ﻿using Confluent.Kafka;
 using Kafka.Common.Interfaces;
-using Kafka.Common.Logger;
 using Kafka.Core.Interfaces;
 using Kafka.Core.Models;
 using Newtonsoft.Json;
@@ -10,14 +9,12 @@ namespace Kafka.Core.Services
 	public class KafkaEventBus : IEventBus
     {
 		private readonly KafkaConfiguration _kafkaConfiguration;
-		private readonly IConfigurationProvider _configurationProvider;
 		private readonly IAppLogger _appLogger;
 
 		public KafkaEventBus(IConfigurationProvider configurationProvider, IAppLoggerProvider appLoggerProvider)
         {
             _appLogger = appLoggerProvider.GetAppLogger(Common.Models.Enums.SupportedLoggers.ConsoleLogger).GetAwaiter().GetResult();
-            _configurationProvider = configurationProvider;
-			_kafkaConfiguration = _configurationProvider.GetValue<KafkaConfiguration>(KeyStore.ConfigurationKeys.KafkaSettings).GetAwaiter().GetResult();
+			_kafkaConfiguration = configurationProvider.GetValue<KafkaConfiguration>(KeyStore.ConfigurationKeys.KafkaSettings).GetAwaiter().GetResult();
 		}
 
 		public async Task Notify<T>(string channel, T eventPayload, Headers headers)
