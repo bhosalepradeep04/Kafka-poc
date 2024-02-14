@@ -3,16 +3,11 @@ POC to produce and consume an event/message from a kafka topic and mark for dele
 <br/>
 SDK used for kafka operations: Confluent.Kafka.
 
-### Current state
-Implemented producer and consumer clients along with core services to communicate with a topic in a local kafka cluster.
-<br/>
-Pending work:
-1. Configurations for local kafka cluster brokers.
-2. Unit test cases for code coverage
-3. Infra: Docker image to work with local
+### Pending work
+Unit test cases for code coverage
 
 ### Infra
-A kafka cluster (hosted on local machine using docker) with a topic.
+A kafka cluster (hosted on local machine using docker desktop) with a topic.
 
 ### Features
 1. Produces an event to a kafka topic using Confluent.Kafka
